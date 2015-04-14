@@ -124,6 +124,6 @@ STATICFILES_DIRS = (
 #Configuraciones para enviar mensajes usando gmail
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'electronica.unicaribe@gmail.com'
-EMAIL_HOST_PASSWORD = 'showdown14'
+EMAIL_HOST_USER = 'username@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
 EMAIL_PORT = 587
