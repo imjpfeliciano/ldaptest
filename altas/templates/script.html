@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+	<h1>Usuarios Registrados</h1>
+{% endblock %}
+
+{% block contenido %}
+	<div class="ui-grid-b">
+		<div class="ui-block-a" style="width:30%"></div>
+    	<div class="ui-block-b" style="width:40%">
+	<ul>
+		{% for dato in datos %}
+		<li>
+			###############################################<br>
+			dn: uid={{dato.nombre_corto}}, ou=usuarios, dc=somebooks, dc=local<br>
+			objectClass: inetOrgPerson<br>
+			objectClass: posixAccount<br>
+			objectClass: shadowAccount<br>
+			uid: {{dato.nombre_corto}}<br>
+			sn: {{dato.ap_paterno}} <br>
+			givenName: {{dato.nombre}}<br>
+			cn: {{dato.nombre}} {{dato.ap_paterno}}<br>
+			displayName: {{dato.nombre}} {{dato.ap_paterno}}<br>
+			uidNumber: 1000<br>
+			gidNumber: {{dato.matricula}}<br>
+			userPassword: {{dato.contrasena}}<br>
+			gecos: {{dato.nombre}} {{dato.ap_paterno}}<br>
+			loginShell: /bin/bash<br>
+			homeDirectory: /home/{{dato.nombre_corto}}<br>
+			shadowExpire: -1<br>
+			shadowFlag: 0<br>
+			shadowWarning: 7<br>
+			shadowMin: 8<br><br>
+		</li>
+		{% empty %}
+		<li>Aun no hay alumnos registrados</li>
+		{% endfor %}
+	</ul>
+	    	</div>
+    	<div class="ui-block-c"></div>
+	</div><!-- /grid-b -->
+{% endblock %}
